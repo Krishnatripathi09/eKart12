@@ -1,0 +1,26 @@
+{
+  "name": "@ekart/source",
+  "version": "0.0.1",
+  "description": "eKart is an microservice ecommerce application",
+  "main": "index.js",
+  "scripts": {
+    "generate:tree": "struct -o project.tree"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msboffl/eKart.git"
+  },
+  "keywords": [
+    "ekart"
+  ],
+  "author": "Mareedu Saibabu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msboffl/eKart/issues"
+  },
+  "homepage": "https://github.com/msboffl/eKart#readme",
+  "devDependencies": {
+    "@structure-codes/cli": "^0.0.6",
+    "typescript": "^5.9.2"
+  }
+}
