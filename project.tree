@@ -1,14 +1,43 @@
 ├── .gitignore
 ├── apps
+│  ├── admin
+│  ├── mobile
+│  └── store
 ├── configs
-│  ├── eslint-config
-│  ├── prettier-config
-│  └── typescript-cofig
+│  ├── eslint
+│  ├── prettier
+│  └── typescript
+│    └── tsconfig.base.json
+├── docs
+├── infra
+│  ├── docker
+│  ├── k8s
+│  ├── scripts
+│  └── terraform
 ├── LICENSE
 ├── micros
+│  ├── gateway
+│  ├── inventory
+│  ├── notifications
+│  ├── orders
+│  ├── payments
+│  ├── products
+│  └── users
 ├── package.json
 ├── packages
+│  ├── database
+│  └── shared
+│    ├── constants
+│    ├── types
+│    ├── ui
+│    └── utils
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
 ├── project.tree
-└── README.md
+├── README.md
+├── tests
+│  ├── contracts
+│  ├── e2e
+│  ├── integration
+│  └── performance
+└── tsconfig.json
