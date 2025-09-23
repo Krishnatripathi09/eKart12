@@ -4,7 +4,8 @@
   "description": "eKart is an microservice ecommerce application",
   "main": "index.js",
   "scripts": {
-    "generate:tree": "struct -o project.tree"
+    "generate:tree": "struct -o project.tree",
+    "users:dev": "pnpm --filter @ekart/users dev"
   },
   "repository": {
     "type": "git",

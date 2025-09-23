@@ -23,9 +23,21 @@
 │  ├── payments
 │  ├── products
 │  └── users
+│    ├── .env
+│    ├── dist
+│    │  ├── cache
+│    │  │  └── tsconfig.tsbuildinfo
+│    │  ├── index.d.ts
+│    │  ├── index.d.ts.map
+│    │  ├── index.js
+│    │  └── index.js.map
+│    ├── package.json
+│    ├── src
+│    │  ├── index.ts
+│    │  └── routes
+│    └── tsconfig.json
 ├── package.json
 ├── packages
-│  ├── database
 │  └── shared
 │    ├── constants
 │    ├── types
