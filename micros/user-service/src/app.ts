@@ -1,5 +1,5 @@
 import express, { Express, Request, Response } from "express";
-import userRouter from "./routes/user.route";
+import userRouter from "./routes/user.route.js";
 
 const app: Express = express();
 
@@ -10,7 +10,7 @@ app.use(express.json());
 app.get("/health", (_: Request, res: Response) => {
   res.send({
     status: "OK",
-    service: "User Service",
+    service: "eKart - User Service",
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
   });
