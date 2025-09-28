@@ -1,55 +1,28 @@
 ├── .gitignore
-├── apps
-│  ├── admin
-│  ├── mobile
-│  └── store
-├── configs
-│  ├── eslint
-│  ├── prettier
-│  └── typescript
-│    └── tsconfig.base.json
-├── docs
-├── infra
-│  ├── docker
-│  ├── k8s
-│  ├── scripts
-│  └── terraform
+├── .prettierignore
+├── .prettierrc
 ├── LICENSE
 ├── micros
-│  ├── gateway
-│  ├── inventory
-│  ├── notifications
-│  ├── orders
-│  ├── payments
-│  ├── products
-│  └── users
+│  ├── product-service
+│  └── user-service
 │    ├── .env
-│    ├── dist
-│    │  ├── cache
-│    │  │  └── tsconfig.tsbuildinfo
-│    │  ├── index.d.ts
-│    │  ├── index.d.ts.map
-│    │  ├── index.js
-│    │  └── index.js.map
 │    ├── package.json
+│    ├── prisma
+│    │  ├── migrations
+│    │  │  ├── 20250923144834_user
+│    │  │  │  └── migration.sql
+│    │  │  └── migration_lock.toml
+│    │  └── schema.prisma
 │    ├── src
+│    │  ├── app.ts
 │    │  ├── index.ts
 │    │  └── routes
+│    │    └── user.route.ts
 │    └── tsconfig.json
 ├── package.json
-├── packages
-│  └── shared
-│    ├── constants
-│    ├── types
-│    ├── ui
-│    └── utils
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
 ├── project.tree
 ├── README.md
-├── tests
-│  ├── contracts
-│  ├── e2e
-│  ├── integration
-│  └── performance
+├── tsconfig.base.json
 └── tsconfig.json
