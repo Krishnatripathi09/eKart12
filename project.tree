@@ -1,24 +1,25 @@
 ├── .gitignore
 ├── .prettierignore
 ├── .prettierrc
+├── apps
+│  ├── mobile-admin
+│  │  └── .gitkeep
+│  ├── mobile-store
+│  │  └── .gitkeep
+│  ├── web-admin
+│  │  └── .gitkeep
+│  └── web-store
+│    └── .gitkeep
 ├── LICENSE
 ├── micros
+│  ├── api-gateway
+│  │  └── .gitkeep
+│  ├── auth-service
+│  │  └── .gitkeep
 │  ├── product-service
+│  │  └── .gitkeep
 │  └── user-service
-│    ├── .env
-│    ├── package.json
-│    ├── prisma
-│    │  ├── migrations
-│    │  │  ├── 20250923144834_user
-│    │  │  │  └── migration.sql
-│    │  │  └── migration_lock.toml
-│    │  └── schema.prisma
-│    ├── src
-│    │  ├── app.ts
-│    │  ├── index.ts
-│    │  └── routes
-│    │    └── user.route.ts
-│    └── tsconfig.json
+│    └── .gitkeep
 ├── package.json
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
