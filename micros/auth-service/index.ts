@@ -2,4 +2,11 @@ import express from 'express';
 
 const app = express();
 
-app.listen(4001)
+const PORT = 4001;
+app.listen(PORT, () => {
+  console.log(`Server is Listening on ${PORT}`);
+});
+
+app.get('/', (req, res) => {
+  res.status(200).send('This is a Get Route');
+});
