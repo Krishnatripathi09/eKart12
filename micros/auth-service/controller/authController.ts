@@ -1,6 +1,7 @@
 import prisma from '../DB/db.config';
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
+
 export const createUser = async (req: Request, res: Response) => {
   const { username, email, password } = req.body;
 
@@ -31,4 +32,34 @@ export const createUser = async (req: Request, res: Response) => {
   console.log(userz);
 
   res.status(201).send(`User ${username} Created Successfully`);
+};
+
+export const logInUser = async (req: Request, res: Response) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).send('All the fields are Required');
+  }
+
+  const user = await prisma.users.findUnique({
+    where: {
+      email,
+    },
+  });
+
+  if (!user) {
+    return res
+      .status(400)
+      .send('Please Enter valid Credentials==> user noikhe');
+  }
+
+  const isValidPassword = await bcrypt.compare(password, user.password);
+
+  if (isValidPassword) {
+    res.status(200).send('Logged-In Succussfully');
+  } else {
+    res
+      .status(401)
+      .send('Please Enter valid Credentials ==> Password Galat ba');
+  }
 };

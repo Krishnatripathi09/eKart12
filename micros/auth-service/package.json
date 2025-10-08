@@ -20,6 +20,7 @@
     "prisma": "^6.16.3"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.3"
   }
 }
