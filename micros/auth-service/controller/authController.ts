@@ -1,5 +1,6 @@
 import prisma from '../DB/db.config';
 import { Request, Response } from 'express';
+import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 export const createUser = async (req: Request, res: Response) => {
@@ -47,7 +48,7 @@ export const logInUser = async (req: Request, res: Response) => {
     },
   });
 
-  if (!user) {
+  if (!user || !user.password || user.password === undefined) {
     return res
       .status(400)
       .send('Please Enter valid Credentials==> user noikhe');
@@ -56,9 +57,17 @@ export const logInUser = async (req: Request, res: Response) => {
   const isValidPassword = await bcrypt.compare(password, user.password);
 
   if (isValidPassword) {
-    res.status(200).send('Logged-In Succussfully');
+    const token = await jwt.sign({ id: user.id }, 'MysecretToSignJWT', {
+      expiresIn: '1h',
+    });
+
+    res.cookie('token', token, {
+      httpOnly: true,
+      expires: new Date(Date.now() + 9 * 360000),
+    });
+    return res.status(200).send('Logged-In Succussfully');
   } else {
-    res
+    return res
       .status(401)
       .send('Please Enter valid Credentials ==> Password Galat ba');
   }
