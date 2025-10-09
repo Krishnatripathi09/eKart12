@@ -57,9 +57,13 @@ export const logInUser = async (req: Request, res: Response) => {
   const isValidPassword = await bcrypt.compare(password, user.password);
 
   if (isValidPassword) {
-    const token = await jwt.sign({ id: user.id }, 'MysecretToSignJWT', {
-      expiresIn: '1h',
-    });
+    const token = await jwt.sign(
+      { id: user.id },
+      'MysecretToSignJWT@61991688',
+      {
+        expiresIn: '1h',
+      }
+    );
 
     res.cookie('token', token, {
       httpOnly: true,
@@ -71,4 +75,8 @@ export const logInUser = async (req: Request, res: Response) => {
       .status(401)
       .send('Please Enter valid Credentials ==> Password Galat ba');
   }
+};
+
+const getUser = async (req: Request, res: Response) => {
+  const { userId } = req.cookies;
 };
