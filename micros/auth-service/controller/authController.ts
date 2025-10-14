@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import prisma from '../DB/db.config';
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
@@ -49,21 +50,15 @@ export const logInUser = async (req: Request, res: Response) => {
   });
 
   if (!user || !user.password || user.password === undefined) {
-    return res
-      .status(400)
-      .send('Please Enter valid Credentials==> user noikhe');
+    return res.status(400).send('Please Enter valid Credential');
   }
 
   const isValidPassword = await bcrypt.compare(password, user.password);
 
   if (isValidPassword) {
-    const token = await jwt.sign(
-      { id: user.id },
-      'MysecretToSignJWT@61991688',
-      {
-        expiresIn: '1h',
-      }
-    );
+    const token = await jwt.sign({ id: user.id }, process.env['JWT_SECRET']!, {
+      expiresIn: '1h',
+    });
 
     res.cookie('token', token, {
       httpOnly: true,
@@ -77,6 +72,6 @@ export const logInUser = async (req: Request, res: Response) => {
   }
 };
 
-const getUser = async (req: Request, res: Response) => {
-  const { userId } = req.cookies;
-};
+// const getUser = async (req: Request, res: Response) => {
+//   const { userId } = req.cookies;
+// };
