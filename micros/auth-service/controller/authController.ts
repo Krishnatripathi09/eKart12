@@ -23,15 +23,13 @@ export const createUser = async (req: Request, res: Response) => {
 
   const passwordHash = await bcrypt.hash(password, 10);
 
-  const userz = await prisma.users.create({
+  await prisma.users.create({
     data: {
       username,
       email,
       password: passwordHash,
     },
   });
-
-  console.log(userz);
 
   res.status(201).send(`User ${username} Created Successfully`);
 };
